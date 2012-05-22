@@ -97,13 +97,14 @@ public class MakeFileParser {
 
     //parsing
     private void readLineWithDep(String path, String line, BufferedReader inputReader, String previousDependencies, String dependency, HashMap<String, Vector<CompositeObjectEntry>> variableMap, HashMap<String, String> dependencyMap) {
-        if (dependency.length() != 0 && previousDependencies.length() != 0) {
+        if (dependency.trim().length() != 0 && previousDependencies.trim().length() != 0) {
             //there is a current dependency and a parent dependency
             readLine(path, line, inputReader, "(" + previousDependencies + " && " + dependency + ")", variableMap, dependencyMap);
-        } else if (dependency.length() != 0) {
+        } else if (dependency.trim().length() != 0) {
             //found a current dependency but no parent dependencies
+        //	System.out.println("should read line with dependency: " + dependency);
             readLine(path, line, inputReader, dependency, variableMap, dependencyMap);
-        } else if (previousDependencies.length() != 0) {
+        } else if (previousDependencies.trim().length() != 0) {
             //found no current dependency but there is a parent dependency
             readLine(path, line, inputReader, previousDependencies, variableMap, dependencyMap);
         } else {
@@ -154,6 +155,7 @@ public class MakeFileParser {
 
     private String flipDependency(String dependency) {
         if (dependency.startsWith("!")) {
+        	//System.out.println("flipping dependency: " + dependency + " to "+ dependency.substring(1));
             return dependency.substring(1);
         } else {
             return "!" + dependency;
@@ -200,6 +202,7 @@ public class MakeFileParser {
                 //ignore comments
                 if (!line.startsWith("#")) {
                     if (isConditional(line)) {
+                    	//need to fix this
                         skipConditional(inputReader);
                     } else {
                         line = line.trim();
@@ -351,9 +354,12 @@ public class MakeFileParser {
                 if (!line.trim().equals(ENDIF)) {
 
                     if (line.equals(ELSE)) {
-
+                    	//System.out.println("line is else so flipped. Previous dep: " + previousDependencies +" current: " + dependency);
+                    	//read the next line to avoid parsing "else" again
+                    	line = inputReader.readLine();
                         readLineWithDep(path, line, inputReader, previousDependencies, flipDependency(dependency), variableMap, dependencyMap);
                     } else {
+                    	//line is not else so it is the right line for parsing
                         readLineWithDep(path, line, inputReader, previousDependencies, dependency, variableMap, dependencyMap);
                     }
                 } else {
@@ -431,6 +437,7 @@ public class MakeFileParser {
 
     private void readLine(String path, String line, BufferedReader inputReader, String previousDependencies, HashMap<String, Vector<CompositeObjectEntry>> variableMap, HashMap<String, String> dependencyMap) {
         try {
+        	//System.out.println("reading line: " + line);
             KEYWORDS keyword = KEYWORDS.NONE;
             if (line.trim().startsWith("include ")) {
                 return;
@@ -572,8 +579,10 @@ public class MakeFileParser {
 //        if(!dependency.isEmpty() && !dependency.endsWith("MODULE")){
 //            dependency= "(" + dependency + " || " + dependency+ "_MODULE)";
 //        }
+        //System.out.println("line : " + line);
 
         if (dependency.length() != 0 && previousDependencies.length() != 0) {
+        	//System.out.println("should have both previous : " + previousDependencies + " and current : " + dependency);
             //there is a current dependency and a parent dependency
             addFiles(path, variableValue, "(" + previousDependencies + " && " + dependency + ")", variableMap, dependencyMap, keyword);
         } else if (dependency.length() != 0) {
@@ -899,6 +908,16 @@ public class MakeFileParser {
         }
 
     }
+    
+    private static void printStatisticsInFile(){
+    	 try {
+             PrintWriter fileWriter = new PrintWriter(new FileOutputStream(new File("statistics.txt")));
+
+             fileWriter.println(parsedMakeFiles.size() + "," + allFiles.size() + "," + conditionedFiles.size() + "," + parsedDirectories.size() + "," + conditionedDirectories.size() + "," + makeFileConfigs.size());
+         } catch (IOException ex) {
+             Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
 
     private static void printParsedFiles() {
         try {
@@ -1028,6 +1047,8 @@ public class MakeFileParser {
         System.out.println("Avg number of CONFIGs in dependency" + (numOfConfigConditions / totalNumOfConditions));
         System.out.println("Max. num of CONFIGS in dependencies: " + maxNumOfConfigConditions);
         System.out.println("Min num of CONFIGS in dependencies: " + minNumOfConfigConditions);
+        
+      printStatisticsInFile();
         printParsedFiles();
         printFileConfigs();
         printDirectoryConfigs();
@@ -1087,7 +1108,7 @@ public class MakeFileParser {
 
     public static void main(String args[]) {
         BufferedReader reader = null;
-        try {
+        try {        	
             writeArchNames();
             File file = new File("archNames.txt");
             reader = new BufferedReader(new FileReader(file));
