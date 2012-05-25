@@ -911,9 +911,8 @@ public class MakeFileParser {
     
     private static void printStatisticsInFile(){
     	 try {
-             PrintWriter fileWriter = new PrintWriter(new FileOutputStream(new File("statistics.txt")));
-
-             fileWriter.println(parsedMakeFiles.size() + "," + allFiles.size() + "," + parsedDirectories.size() + conditionedFiles.size() + "," + conditionedDirectories.size() + "," + makeFileConfigs.size());
+             PrintWriter fileWriter = new PrintWriter(new FileOutputStream(new File("statistics.txt")));             
+             fileWriter.println(parsedMakeFiles.size() + "," + allFiles.size() + "," + parsedDirectories.size() + "," + conditionedFiles.size() + "," + conditionedDirectories.size() + "," + makeFileConfigs.size());
              fileWriter.close();
          } catch (IOException ex) {
              Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE, null, ex);
