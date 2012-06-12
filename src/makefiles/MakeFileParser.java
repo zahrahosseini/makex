@@ -665,11 +665,11 @@ public class MakeFileParser {
 			// System.out.println("should have both previous : " +
 			// previousDependencies + " and current : " + dependency);
 			// there is a current dependency and a parent dependency
-			addFiles(path, variableValue, "(" + previousDependencies + " && "
-					+ dependency + ")", variableMap, dependencyMap, keyword);
+			addFiles(path, variableValue, "(" + previousDependencies + " && ("
+					+ dependency + " || " + dependency + "_MODULE))", variableMap, dependencyMap, keyword);
 		} else if (dependency.length() != 0) {
 			// found a current dependency but no parent dependencies
-			addFiles(path, variableValue, dependency, variableMap,
+			addFiles(path, variableValue, "(" + dependency + " || " + dependency + "_MODULE)", variableMap,
 					dependencyMap, keyword);
 		} else if (previousDependencies.length() != 0) {
 			// found no current dependency but there is a parent dependency
@@ -736,8 +736,7 @@ public class MakeFileParser {
 	}
 
 	// output models
-	private void writeDependencies(String path,
-			HashMap<String, String> dependencyMap) {
+	private void writeDependencies(String path, HashMap<String, String> dependencyMap) {
 		String fileToBePrinted = "";
 		Iterator it = dependencyMap.entrySet().iterator();
 		while (it.hasNext()) {
@@ -792,8 +791,7 @@ public class MakeFileParser {
 
 						String newKey = key.replace(("$(BITS)"), "32");
 						fileToBePrinted = path + newKey;
-						if (changeOutputStyle
-								&& fileToBePrinted.trim().startsWith("./")) {
+						if (changeOutputStyle&& fileToBePrinted.trim().startsWith("./")) {
 							fileToBePrinted = fileToBePrinted.replace("./",
 									"FILE_");
 						}
