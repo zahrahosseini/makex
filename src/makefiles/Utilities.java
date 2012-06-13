@@ -24,6 +24,7 @@ public abstract class Utilities {
 		public static final String ENDIF = "endif";
 		public static final String IFDEF = "ifdef";
 		public static final String ELSE = "else";
+		public static final String IFNDEF = "ifndef";
 		public static enum KEYWORDS {
 
 			HEAD, INIT, CORE, LIBS, DRIVERS, NET, OBJ, PLAT, MACHINE, ARCH, NONE

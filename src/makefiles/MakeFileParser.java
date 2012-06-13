@@ -24,6 +24,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import sun.org.mozilla.javascript.commonjs.module.ModuleScope;
+
 /**
  * 
  * @author snadi
@@ -51,6 +53,7 @@ public class MakeFileParser {
 	private static int minNumOfConfigConditions = Integer.MAX_VALUE;
 	private static int maxNumOfConfigConditions = 0;
 	private boolean changeOutputStyle;
+	private static Vector<String> modules;
 
 	
 
@@ -64,6 +67,7 @@ public class MakeFileParser {
 		fileConfigs = new Vector<String>();
 		makeFileConfigs = new HashMap<String, MakefileConfig>();
 		dependencySizeVector = new Vector<Integer>();
+		modules = new Vector<String>();
 	}
 
 	// constructor
@@ -311,9 +315,26 @@ public class MakeFileParser {
 			HashMap<String, String> dependencyMap) {
 
 		try {
+		    
+		    String dependency = "";
 
-			String dependency = "";
+		    
+		    if(conditionalLine.startsWith(Utilities.IFNDEF)){
+			if(!conditionalLine.contains("CONFIG_")){
+			    skipConditional(inputReader);
+			    return;
+			}
+			dependency = "!" + conditionalLine.substring(conditionalLine.indexOf("CONFIG_"));
+		    }else if(conditionalLine.startsWith(Utilities.IFDEF)){
+			
+			if(!conditionalLine.contains("CONFIG_")){
+			    skipConditional(inputReader);
+			    return;
+			}
+			dependency = conditionalLine.substring(conditionalLine.indexOf("CONFIG_"));
+		    }else{
 
+			
 			int dollarIndex = conditionalLine.indexOf("$");
 
 			if (dollarIndex == -1) {
@@ -347,6 +368,7 @@ public class MakeFileParser {
 					dependency = "!" + dependency;
 				}
 			}
+		    }
 
 			while (inputReader.ready()) {
 				String line = inputReader.readLine();
@@ -655,21 +677,19 @@ public class MakeFileParser {
 
 		variableValue = getNextLines(variableValue, inputReader);
 
-		// //dealing with modules
-		// if(!dependency.isEmpty() && !dependency.endsWith("MODULE")){
-		// dependency= "(" + dependency + " || " + dependency+ "_MODULE)";
-		// }
-		// System.out.println("line : " + line);
+		if(dependency.length() !=0 && modules.contains(dependency + "_MODULE")){
+		    dependency= "(" + dependency + " || " + dependency + "_MODULE)"; 
+		}
 
 		if (dependency.length() != 0 && previousDependencies.length() != 0) {
 			// System.out.println("should have both previous : " +
 			// previousDependencies + " and current : " + dependency);
 			// there is a current dependency and a parent dependency
-			addFiles(path, variableValue, "(" + previousDependencies + " && ("
-					+ dependency + " || " + dependency + "_MODULE))", variableMap, dependencyMap, keyword);
+			addFiles(path, variableValue, "(" + previousDependencies + " && "
+					+ dependency +")", variableMap, dependencyMap, keyword);
 		} else if (dependency.length() != 0) {
 			// found a current dependency but no parent dependencies
-			addFiles(path, variableValue, "(" + dependency + " || " + dependency + "_MODULE)", variableMap,
+			addFiles(path, variableValue, dependency, variableMap,
 					dependencyMap, keyword);
 		} else if (previousDependencies.length() != 0) {
 			// found no current dependency but there is a parent dependency
@@ -681,6 +701,26 @@ public class MakeFileParser {
 					keyword);
 
 		}
+	}
+
+	private static void loadModules() {
+	    try{
+	    File file = new File("modules.txt");
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+		
+		while(reader.ready()){
+		    modules.add(reader.readLine().trim());
+		}
+		
+		
+	    }catch(FileNotFoundException e){
+		//if file is not found, output message to keep items available
+		System.out.println("ERROR: Run undertaker-kconfigdump first to extract modules");
+		System.exit(0);	
+	    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();	
+	    }
 	}
 
 	private void addCompositeObjects(String tokenName, String path,
@@ -1226,7 +1266,7 @@ public class MakeFileParser {
 
 			File file = new File("archNames.txt");
 			reader = new BufferedReader(new FileReader(file));
-			
+			MakeFileParser.loadModules();
 			while (reader.ready()) {
 				String arch = reader.readLine().trim();
 				MakeFileParser constructor = new MakeFileParser(arch, true,
