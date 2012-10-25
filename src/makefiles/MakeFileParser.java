@@ -24,8 +24,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import sun.org.mozilla.javascript.commonjs.module.ModuleScope;
-
 /**
  * 
  * @author snadi
@@ -808,6 +806,7 @@ public class MakeFileParser {
 					int currentNumOfConfigs = getNumOfConfigs(dependency);
 
 					numOfConfigConditions += currentNumOfConfigs;
+
 					dependencySizeVector.add(currentNumOfConfigs);
 
 					if (currentNumOfConfigs == 0) {
@@ -989,6 +988,7 @@ public class MakeFileParser {
 
 		Pattern pattern = Pattern.compile("CONFIG_[_a-zA-Z0-9]*");
 		Matcher matcher = pattern.matcher(dependency);
+        Vector<String> detectedConfigs = new Vector<String>();
 
 		while (matcher.find()) {
 
@@ -997,9 +997,21 @@ public class MakeFileParser {
 			if (!configVector.contains(config)) {
 				configVector.add(config);
 			}
-		}
+
+        }
 
 	}
+
+    public void incrementExpressions(Vector<String> detectedConfigs, String dependency){
+        for(String config: detectedConfigs){
+            MakefileConfig makefileConfig = makeFileConfigs.get(config);
+
+            if(makefileConfig != null){
+                makefileConfig.addExpression(dependency)    ;
+            }
+        }
+    }
+
 
 	public void closeFile() {
 		outputFile.close();
@@ -1196,7 +1208,26 @@ public class MakeFileParser {
 		printDirectoryConfigs();
 		printAllConfigs();
 		printDependencySize();
+        printExpressions();
 	}
+
+    private static void printExpressions(){
+        try {
+            PrintWriter fileWriter = new PrintWriter(new FileOutputStream(
+                    new File("ScattDegree.csv")));
+
+            for (String config : makeFileConfigs.keySet()) {
+                MakefileConfig makefileConfig = makeFileConfigs.get(config);
+                fileWriter.println(config + "," + makefileConfig.getNumOfExpressions());
+            }
+
+            fileWriter.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+                    null, ex);
+        }
+    }
+
 
 	// statistics helpers
 	private int getNumOfConfigs(String dependency) {
@@ -1220,11 +1251,14 @@ public class MakeFileParser {
 
 		Pattern pattern = Pattern.compile("CONFIG_[_a-zA-Z0-9]*");
 		Matcher matcher = pattern.matcher(dependency);
+        Vector<String> detectedConfigs = new Vector<String>()    ;
 
 		while (matcher.find()) {
 
 			String config = dependency
 					.substring(matcher.start(), matcher.end());
+
+
 			if (makeFileConfigs.containsKey(config)) {
 
 				if (isDirectory) {
@@ -1246,7 +1280,14 @@ public class MakeFileParser {
 
 				makeFileConfigs.put(config, makefileConfig);
 			}
-		}
+
+            //to avoid counting the same expression twice if it has the same feature appearing in it since we don't simplify
+            if(!detectedConfigs.contains(config)){
+                detectedConfigs.add(config);
+            }
+        }
+
+        incrementExpressions(detectedConfigs, dependency);
 
 	}
 

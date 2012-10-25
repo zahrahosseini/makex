@@ -17,6 +17,7 @@ public class MakefileConfig {
     private boolean controlsFile;
     private Vector<String> directoriesControlled;
     private Vector<String> filesControlled;
+    private Vector<String> expressions;
 
     public MakefileConfig(String configName) {
         this.configName = configName;
@@ -24,6 +25,7 @@ public class MakefileConfig {
         controlsFile = false;
         directoriesControlled = new Vector<String>();
         filesControlled = new Vector<String>();
+        expressions = new Vector<String>();
     }
 
     @Override
@@ -103,4 +105,14 @@ public class MakefileConfig {
     public void setFilesControlled(Vector<String> filesControlled) {
         this.filesControlled = filesControlled;
     }
+
+    public int getNumOfExpressions(){
+        return expressions.size();
+    }
+
+    public void addExpression(String expression){
+        if(!expressions.contains(expression))
+            expressions.add(expression) ;
+    }
 }
+
