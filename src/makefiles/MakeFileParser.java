@@ -1269,6 +1269,7 @@ public class MakeFileParser {
 			MakeFileParser.loadModules();
 			while (reader.ready()) {
 				String arch = reader.readLine().trim();
+				System.out.println("parsing for arch: "+ arch);
 				MakeFileParser constructor = new MakeFileParser(arch, true,
 						changeOutputStyle);
 
