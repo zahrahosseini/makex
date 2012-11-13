@@ -7,7 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="de7de85c-624c-444e-b916-39e42aeb9e86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/makefiles/MakeFileParserDir.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/makefiles/MakeFileParser.java" afterPath="$PROJECT_DIR$/src/makefiles/MakeFileParser.java" />
     </list>
     <ignored path="LinuxMakeFileParser.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,65 +66,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MakeFileParser.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MakeFileParser.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/makefiles/MakeFileParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1094" column="61" selection-start="31791" selection-end="31839" vertical-scroll-proportion="-8.48">
+            <state line="918" column="12" selection-start="37178" selection-end="37178" vertical-scroll-proportion="0.67364746">
               <folding>
-                <element signature="docComment;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#MakeFileParser#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#readLineWithDep#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#3217#3273#0" expanded="false" />
-                <element signature="method#flipDependency#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#3895#3963#0" expanded="false" />
-                <element signature="method#outputVariableMap#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#5355#5416#0" expanded="false" />
-                <element signature="e#5934#5950#0" expanded="false" />
-                <element signature="e#6127#6178#0" expanded="false" />
-                <element signature="e#6511#6550#0" expanded="false" />
-                <element signature="e#6681#6729#0" expanded="false" />
-                <element signature="e#7172#7217#0" expanded="false" />
-                <element signature="e#8131#8177#0" expanded="false" />
-                <element signature="method#skipConditional#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#parseConditional#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#11548#11611#0" expanded="false" />
-                <element signature="method#parseMakeFile#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#parseMakeFileAbsolute#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#12895#12960#0" expanded="false" />
-                <element signature="method#readLine#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#addFiles#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#17064#17132#0" expanded="false" />
-                <element signature="e#17627#17695#0" expanded="false" />
-                <element signature="e#18181#18236#0" expanded="false" />
-                <element signature="e#18455#18523#0" expanded="false" />
-                <element signature="method#parseLine#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#20597#20651#0" expanded="false" />
-                <element signature="method#addCompositeObjects#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#22498#22549#0" expanded="false" />
-                <element signature="e#22736#22787#0" expanded="false" />
-                <element signature="e#22947#22998#0" expanded="false" />
-                <element signature="e#23138#23189#0" expanded="false" />
-                <element signature="method#getNextLines#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#29300#29308#0" expanded="true" />
-                <element signature="method#closeFile#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#addConditionedFile#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#printParsedFiles#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#printDirectoryConfigs#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#printFileConfigs#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="method#printIndivStatistics#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#36751#36759#0" expanded="true" />
-                <element signature="method#main#0;class#MakeFileParser#0" expanded="false" />
-                <element signature="e#37993#38058#0" expanded="false" />
-                <element signature="e#39478#39491#0" expanded="false" />
+                <element signature="e#0#53054#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5650#5688#0" expanded="true" />
+                <element signature="e#11466#11488#0" expanded="true" />
+                <element signature="e#18292#18308#0" expanded="true" />
+                <element signature="e#39888#39896#0" expanded="true" />
+                <element signature="e#48380#48388#0" expanded="true" />
+                <element signature="e#49006#49014#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MakeFileParserDir.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MakeFileParserDir.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/makefiles/MakeFileParserDir.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="754" column="73" selection-start="22928" selection-end="22928" vertical-scroll-proportion="0.3722826">
+            <state line="754" column="73" selection-start="22928" selection-end="22928" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,8 +113,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/makefiles/MakefileConfig.java" />
-        <option value="$PROJECT_DIR$/src/makefiles/MakeFileParser.java" />
         <option value="$PROJECT_DIR$/src/makefiles/MakeFileParserDir.java" />
+        <option value="$PROJECT_DIR$/src/makefiles/MakeFileParser.java" />
       </list>
     </option>
   </component>
@@ -174,7 +138,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -185,84 +149,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinuxMakeFileParser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="makefiles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -463,18 +350,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -547,59 +434,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/makefiles/MakeFileParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1094" column="61" selection-start="31791" selection-end="31839" vertical-scroll-proportion="-8.48">
-          <folding>
-            <element signature="docComment;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#MakeFileParser#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#readLineWithDep#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#3217#3273#0" expanded="false" />
-            <element signature="method#flipDependency#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#3895#3963#0" expanded="false" />
-            <element signature="method#outputVariableMap#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#5355#5416#0" expanded="false" />
-            <element signature="e#5934#5950#0" expanded="false" />
-            <element signature="e#6127#6178#0" expanded="false" />
-            <element signature="e#6511#6550#0" expanded="false" />
-            <element signature="e#6681#6729#0" expanded="false" />
-            <element signature="e#7172#7217#0" expanded="false" />
-            <element signature="e#8131#8177#0" expanded="false" />
-            <element signature="method#skipConditional#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#parseConditional#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#11548#11611#0" expanded="false" />
-            <element signature="method#parseMakeFile#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#parseMakeFileAbsolute#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#12895#12960#0" expanded="false" />
-            <element signature="method#readLine#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#addFiles#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#17064#17132#0" expanded="false" />
-            <element signature="e#17627#17695#0" expanded="false" />
-            <element signature="e#18181#18236#0" expanded="false" />
-            <element signature="e#18455#18523#0" expanded="false" />
-            <element signature="method#parseLine#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#20597#20651#0" expanded="false" />
-            <element signature="method#addCompositeObjects#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#22498#22549#0" expanded="false" />
-            <element signature="e#22736#22787#0" expanded="false" />
-            <element signature="e#22947#22998#0" expanded="false" />
-            <element signature="e#23138#23189#0" expanded="false" />
-            <element signature="method#getNextLines#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#29300#29308#0" expanded="true" />
-            <element signature="method#closeFile#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#addConditionedFile#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#printParsedFiles#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#printDirectoryConfigs#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#printFileConfigs#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="method#printIndivStatistics#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#36751#36759#0" expanded="true" />
-            <element signature="method#main#0;class#MakeFileParser#0" expanded="false" />
-            <element signature="e#37993#38058#0" expanded="false" />
-            <element signature="e#39478#39491#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/makefiles/MakefileConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="109" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0" />
@@ -607,8 +441,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/makefiles/MakeFileParserDir.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="754" column="73" selection-start="22928" selection-end="22928" vertical-scroll-proportion="0.3722826">
+        <state line="754" column="73" selection-start="22928" selection-end="22928" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/makefiles/MakeFileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="918" column="12" selection-start="37178" selection-end="37178" vertical-scroll-proportion="0.67364746">
+          <folding>
+            <element signature="e#0#53054#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5650#5688#0" expanded="true" />
+            <element signature="e#11466#11488#0" expanded="true" />
+            <element signature="e#18292#18308#0" expanded="true" />
+            <element signature="e#39888#39896#0" expanded="true" />
+            <element signature="e#48380#48388#0" expanded="true" />
+            <element signature="e#49006#49014#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
