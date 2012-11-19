@@ -610,13 +610,21 @@ public class MakeFileParser {
 
                 if (existingDependency.length() != 0
                         && dependency.length() != 0) {
+                    //an existing dependency exists sothis one will be OR-ed with it
                     dependencyMap.put(token, "(" + existingDependency + " || "
                             + dependency + ")");
-                } else if (existingDependency.length() != 0) {
+                }else{
+                    //if either of the dependencies is empty, this means that the file can be unconditionally added
+                    // so we should keep its dependency as ""
+                    dependencyMap.put(token, "");
+                }
+
+
+                /*else if (existingDependency.length() != 0) {
                     dependencyMap.put(token, existingDependency);
                 } else {
                     dependencyMap.put(token, dependency);
-                }
+                } */
 
             } else {
                 dependencyMap.put(token, dependency);
@@ -1048,6 +1056,8 @@ public class MakeFileParser {
                     + conditionedDirectories.size() + ","
                     + makeFileConfigs.size());
             fileWriter.close();
+
+
         } catch (IOException ex) {
             Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
                     null, ex);
