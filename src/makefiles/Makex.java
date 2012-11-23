@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 /**
  * @author snadi
  */
-public class MakeFileParser {
+public class Makex {
 
     private int totalNumOfFiles;
     private int filesWithDep;
@@ -69,7 +69,7 @@ public class MakeFileParser {
     }
 
     // constructor
-    public MakeFileParser(String architecture, boolean printStatistics,
+    public Makex(String architecture, boolean printStatistics,
                           boolean changeOutputStyle) {
         try {
             arch = architecture;
@@ -81,7 +81,7 @@ public class MakeFileParser {
                     "models/" + architecture + ".makemodel")));
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -406,7 +406,7 @@ public class MakeFileParser {
             evaluateMakeFile(parentPath, childPath, variableMap,
                     previousDependencies, checkKbuild, false);
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -421,7 +421,7 @@ public class MakeFileParser {
             evaluateMakeFile(makefilePath, "", variableMap,
                     previousDependencies, checkKbuild, true);
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -531,7 +531,7 @@ public class MakeFileParser {
             parseLine(path.toString(), line, inputReader, previousDependencies,
                     variableMap, dependencyMap, keyword);
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1059,7 +1059,7 @@ public class MakeFileParser {
 
 
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1073,7 +1073,7 @@ public class MakeFileParser {
                 fileWriter.println(file);
             }
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
 
@@ -1090,7 +1090,7 @@ public class MakeFileParser {
 
             fileWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1145,7 +1145,7 @@ public class MakeFileParser {
             System.out.println("# controlling file only:" + fileOnly);
             fileWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1161,7 +1161,7 @@ public class MakeFileParser {
 
             fileWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1177,7 +1177,7 @@ public class MakeFileParser {
 
             fileWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1238,7 +1238,7 @@ public class MakeFileParser {
 
             fileWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
     }
@@ -1322,11 +1322,11 @@ public class MakeFileParser {
 
             File file = new File("archNames.txt");
             reader = new BufferedReader(new FileReader(file));
-            MakeFileParser.loadModules();
+            Makex.loadModules();
             while (reader.ready()) {
                 String arch = reader.readLine().trim();
                 System.out.println("parsing for arch: " + arch);
-                MakeFileParser constructor = new MakeFileParser(arch, true,
+                Makex constructor = new Makex(arch, true,
                         changeOutputStyle);
 
                 // if (args.length == 0) {
@@ -1358,13 +1358,13 @@ public class MakeFileParser {
             printOverallStatistics();
 
         } catch (IOException ex) {
-            Logger.getLogger(MakeFileParser.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(Makex.class.getName()).log(Level.SEVERE,
                     null, ex);
         } finally {
             try {
                 reader.close();
             } catch (IOException ex) {
-                Logger.getLogger(MakeFileParser.class.getName()).log(
+                Logger.getLogger(Makex.class.getName()).log(
                         Level.SEVERE, null, ex);
             }
         }
